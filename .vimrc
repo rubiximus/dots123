@@ -1,5 +1,6 @@
 set mouse=a
 set number
+set hlsearch
 
 colorscheme evening
 
