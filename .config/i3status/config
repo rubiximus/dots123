@@ -20,6 +20,7 @@ order += "load"
 order += "cpu_usage"
 order += "cpu_temperature 0"
 order += "tztime local"
+order += "ddate"
 
 ethernet _first_ {
         # if you use %speed, i3status requires root privileges
@@ -45,8 +46,15 @@ load {
 
 cpu_temperature 0 {
         format = "T: %degrees C"
+	
+	#FreeBSD style path
+	#path = "dev.amdtemp.0.core0.sensor0"
 }
 
 disk "/" {
         format = "%avail"
+}
+
+ddate {
+	format = "%{%a, %b %d%}, %Y%N - %H"
 }
