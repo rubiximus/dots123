@@ -46,6 +46,9 @@ load {
 
 cpu_temperature 0 {
         format = "T: %degrees C"
+	
+	#FreeBSD style path
+	#path = "dev.amdtemp.0.core0.sensor0"
 }
 
 disk "/" {
