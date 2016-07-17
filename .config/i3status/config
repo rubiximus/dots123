@@ -20,6 +20,7 @@ order += "load"
 order += "cpu_usage"
 order += "cpu_temperature 0"
 order += "tztime local"
+order += "ddate"
 
 ethernet _first_ {
         # if you use %speed, i3status requires root privileges
@@ -49,4 +50,8 @@ cpu_temperature 0 {
 
 disk "/" {
         format = "%avail"
+}
+
+ddate {
+	format = "%{%a, %b %d%}, %Y%N - %H"
 }
