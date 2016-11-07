@@ -27,7 +27,7 @@
 
 (defun anti-tab-hook ()
   (setq indent-tabs-mode nil))
-(add-hook 'turn-on-geiser-mode 'anti-tab-hook)
+(add-hook 'geiser-mode-hook 'anti-tab-hook)
 
 (defun my-c-mode-common-hook ()
   (c-set-style "linux")
