@@ -43,3 +43,6 @@
 (show-paren-mode 1)
 (global-linum-mode 1)
 (global-whitespace-mode 1)
+
+(setq-default
+ whitespace-style (remove 'lines whitespace-style))
