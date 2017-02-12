@@ -15,15 +15,15 @@
  '(ansi-color-names-vector
    ["#2e3436" "#a40000" "#4e9a06" "#c4a000" "#204a87" "#5c3566" "#729fcf" "#eeeeec"])
  '(custom-enabled-themes (quote (tsdh-dark)))
- '(package-selected-packages (quote (geiser))))
+ '(inhibit-startup-screen t)
+ '(package-selected-packages (quote (haskell-mode geiser)))
+ '(tool-bar-mode nil))
 (custom-set-faces
  ;; custom-set-faces was added by Custom.
  ;; If you edit it by hand, you could mess it up, so be careful.
  ;; Your init file should contain only one such instance.
  ;; If there is more than one, they won't work right.
  )
-
-;;(load /usr/share/emacs/site-lisp/haskell-mode/haskell.el)
 
 (defun anti-tab-hook ()
   (setq indent-tabs-mode nil))
@@ -38,6 +38,8 @@
   (c-set-offset 'case-label c-basic-offset)
   )
 (add-hook 'c-mode-common-hook 'my-c-mode-common-hook)
+
+(set 'haskell-mode-hook '(interactive-haskell-mode))
 
 (column-number-mode 1)
 (show-paren-mode 1)
