@@ -10,15 +10,11 @@
  ;; If you edit it by hand, you could mess it up, so be careful.
  ;; Your init file should contain only one such instance.
  ;; If there is more than one, they won't work right.
- '(ansi-color-names-vector
-   ["#2e3436" "#a40000" "#4e9a06" "#c4a000" "#204a87" "#5c3566" "#729fcf" "#eeeeec"])
- '(custom-enabled-themes (quote (monokai)))
+ '(custom-enabled-themes (quote (dracula)))
  '(custom-safe-themes
    (quote
-    ("93f9654f91d31e9a9ec6ea2fcffcfcab38353a9588673f2b750e591f704cd633" default)))
- '(inhibit-startup-screen t)
- '(package-selected-packages (quote (monokai-theme haskell-mode geiser)))
- '(tool-bar-mode nil))
+    ("617341f1be9e584692e4f01821716a0b6326baaec1749e15d88f6cc11c288ec6" default)))
+ '(package-selected-packages (quote (monokai-theme haskell-mode geiser dracula-theme))))
 (custom-set-faces
  ;; custom-set-faces was added by Custom.
  ;; If you edit it by hand, you could mess it up, so be careful.
@@ -41,10 +37,20 @@
 (add-hook 'c-mode-common-hook 'my-c-mode-common-hook)
 
 (set 'haskell-mode-hook '(interactive-haskell-mode))
+(setq haskell-process-args-ghci
+      '("-ferror-spans" "-fshow-loaded-modules"))
+(setq haskell-process-args-cabal-repl
+      '("--ghc-options=-ferror-spans -fshow-loaded-modules"))
+(setq haskell-process-args-stack-ghci
+      '("--ghci-options=-ferror-spans -fshow-loaded-modules"
+	"--no-build" "--no-load"))
+(setq haskell-process-args-cabal-new-repl
+      '("--ghc-options=-ferror-spans -fshow-loaded-modules"))
+
 
 (column-number-mode 1)
 (show-paren-mode 1)
-(global-linum-mode 1)
+(global-display-line-numbers-mode 1)
 (global-whitespace-mode 1)
 
 (setq-default
