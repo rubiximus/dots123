@@ -19,6 +19,7 @@ order += "ethernet _first_"
 order += "load"
 order += "cpu_usage"
 order += "cpu_temperature 0"
+order += "cpu_temperature 1"
 order += "ddate"
 order += "tztime local"
 
@@ -45,13 +46,24 @@ load {
 }
 
 cpu_temperature 0 {
-        format = "T: %degrees C"
+        format = "CPU: %degrees C"
 
 	#linux style path
-	path = "/sys/devices/platform/coretemp.0/hwmon/hwmon1/temp1_input"
+	#path = "/sys/devices/platform/coretemp.0/hwmon/hwmon2/temp1_input"
+	#path = "/sys/class/hwmon/hwmon2/temp1_input"
+	path = "/sys/devices/platform/coretemp.0/hwmon/hwmon*/temp1_input"
 	
 	#FreeBSD style path
 	#path = "dev.amdtemp.0.core0.sensor0"
+}
+
+cpu_temperature 1 {
+	format = "GPU: %degrees C"
+
+	#path = "/sys/class/hwmon/hwmon2/temp1_input"
+	#path = "/sys/class/hwmon/hwmon0/temp1_input"
+	path = "/sys/class/drm/card0/device/hwmon/hwmon*/temp1_input"
+	#path = ""
 }
 
 disk "/" {
